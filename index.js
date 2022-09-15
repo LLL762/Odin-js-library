@@ -13,6 +13,11 @@ const BOOKS = [
   new Book("Jamais plus", "Colleen Hoover", 25, true),
 ];
 
+const setReadStatus = (bookIndex, status) => {
+  BOOKS[bookIndex].read = status;
+  displayBooks();
+};
+
 const addBook = (book) => {
   BOOKS.push(book);
   displayBooks();
@@ -27,6 +32,7 @@ const displayBooks = () => {
   BOOKS_GRID.innerHTML = "";
   BOOKS.forEach((book, index) => {
     const bookCard = BOOK_CARD_TEMPLATE.cloneNode(true);
+    const bookReadIcon = bookCard.querySelector(".book-read-icon");
 
     bookCard.querySelector(".book-title").textContent = book.title;
     bookCard.querySelector(".book-author").textContent = book.author;
@@ -37,6 +43,11 @@ const displayBooks = () => {
 
     bookCard.querySelector(".book-delete-icon").onclick = () =>
       removeBookByIndex(index);
+
+    bookReadIcon.onclick = () => setReadStatus(index, !book.read);
+    bookReadIcon.classList.add(
+      `${book.read ? "book-read-true" : "book-read-false"}`
+    );
 
     bookCard.removeAttribute("id");
     bookCard.removeAttribute("hidden");

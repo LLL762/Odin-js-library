@@ -9,7 +9,6 @@
 
 .book-card {
   border: 1px black solid;
-  background-color: aqua;
 }
 
 .book-icon-bar {
@@ -21,4 +20,12 @@
 svg {
   height: 1em;
   fill: black;
+}
+
+.book-read-true {
+  fill: green;
+}
+
+.book-read-false {
+  fill: red;
 }
