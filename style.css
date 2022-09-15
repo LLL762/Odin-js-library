@@ -1,0 +1,24 @@
+#books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-auto-rows: 1fr;
+  grid-auto-columns: 1fr;
+  gap: 0 1em;
+  width: 100%;
+}
+
+.book-card {
+  border: 1px black solid;
+  background-color: aqua;
+}
+
+.book-icon-bar {
+  display: flex;
+  gap: 0.8em;
+  align-items: center;
+}
+
+svg {
+  height: 1em;
+  fill: black;
+}
