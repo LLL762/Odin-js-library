@@ -8,6 +8,20 @@ const BOOKS_GRID = document.getElementById("books-grid");
 
 const BOOK_CARD_TEMPLATE = document.getElementById("book-card-template");
 
+class Book {
+  constructor(title, author, page, read) {
+    this.title = title;
+    this.author = author;
+    this.page = page;
+    this.read = read;
+  }
+
+  info = () =>
+    `${this.title} by ${this.author}, ${this.page} pages, ${
+      this.read ? "read" : "not read yet"
+    }.`;
+}
+
 const BOOKS = [
   new Book("The Hobbit", "J.R.R Tolkien", 295, false),
   new Book("Jamais plus", "Colleen Hoover", 25, true),
@@ -54,18 +68,6 @@ const displayBooks = () => {
     BOOKS_GRID.appendChild(bookCard);
   });
 };
-
-function Book(title, author, page, read) {
-  this.title = title;
-  this.author = author;
-  this.page = page;
-  this.read = read;
-
-  this.info = () =>
-    `${this.title} by ${this.author}, ${this.page} pages, ${
-      this.read ? "read" : "not read yet"
-    }.`;
-}
 
 BOOK_FORM.onsubmit = (event) => {
   event.preventDefault(); //prevent page reloading.
